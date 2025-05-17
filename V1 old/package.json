@@ -1,0 +1,17 @@
+{
+  "name": "Theatrum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/marcorossiIT/Theatrum-Controller",
+  "author": "marcorossiit <marco.rossi.it@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "start:dev": "http-server"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.0",
+    "@babel/preset-env": "^7.19.0",
+    "babel-jest": "^29.0.3"
+  }
+}

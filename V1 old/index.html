@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Theatrum Controller</title>
+
+    <!-- manifest thingies -->
+    <link rel="manifest" href="teatroaudioplayer.webmanifest">
+
+    <link rel="apple-touch-icon" href="img/logo32x32.jpg">
+    <!-- end manifest thingies -->
+
+    <link rel="shortcut icon" href="img/logo32x32.jpg">
+
+
+    <!-- all.js loads all styles and icons -->
+    <script defer src="fontawesome/js/all.js"></script>
+    <link rel="stylesheet" href="index.css">
+
+    <script  src="js/howler.js"></script>
+    <script defer type="module" src="index.js"></script>
+  </head>
+
+  <body>
+
+    <div class="mainTitle">
+      <h1>
+        Theatrum
+      </h1>
+    </div>
+
+    <div class="grid">
+
+      <div class="controlli-suoni">
+
+        <table id="tbl-rumori">
+          <tr id="titoli">
+            <th class="td-titolo ">
+              NOME
+            </th>
+            <th class="td-centered">
+              <i class="fa-solid fa-play"></i><i class="fa-solid fa-pause"></i>
+            </th>
+
+          </tr>
+          <tr>
+            <td>
+              Campanello
+            </td>
+            <td class="td-centered">
+              <button id="btncampanello" ><i
+                  class="fa-solid fa-play"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Toilet
+            </td>
+            <td class="td-centered">
+              <button id="btntoilet" ><i class="fa-solid fa-play"></i></button>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td>
+              <input type="range" name="volumeRumori" id="volumeRumori" min="0" max="100" value="0"
+                >
+            </td>
+            <td>
+              <label style="font-family: monospace;" id="labelVolumeRumori" for="volumeRumori"></label>
+              <button class="fadebutton" id="fadeoutRumori" >FADE OUT</button>
+              <button class="fadebutton" id="fadeinRumori" >FADE IN</button>
+
+
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+      <div class="controlli-canzoni">
+
+        <table id="tbl-canzoni">
+          <tr id="titoli">
+            <th class="td-titolo ">
+              NOME
+            </th>
+            <th class="td-centered">
+              <i class="fa-solid fa-play"></i><i class="fa-solid fa-pause"></i>
+            </th>
+
+          </tr>
+          <tr>
+            <td>
+              01
+            </td>
+            <td class="td-centered">
+              <button id="btnuno" ><i class="fa-solid fa-play"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              02
+            </td>
+            <td class="td-centered">
+              <button id="btndue" ><i class="fa-solid fa-play"></i></button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              03
+            </td>
+            <td class="td-centered">
+              <button id="btntre" ><i class="fa-solid fa-play"></i></button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              04
+            </td>
+            <td class="td-centered">
+              <button id="btnquattro" ><i class="fa-solid fa-play"></i></button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              05
+            </td>
+            <td class="td-centered">
+              <button id="btncinque" ><i class="fa-solid fa-play"></i></button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <input type="range" name="volumeCanzoni" id="volumeCanzoni" min="0" max="100" value="0"
+                >
+            </td>
+            <td>
+              <label style="font-family: monospace;" id="labelVolumeCanzoni" for="volumeCanzoni"></label>
+              <button class="fadebutton" id="fadeoutCanzoni" >FADE OUT</button>
+              <button class="fadebutton" id="fadeinCanzoni" >FADE IN</button>
+
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+      <div class="controlli-generali">
+        <div class="itemMuteall">
+          <button id="btnMuteall" onclick="muteall()">
+            <i class="fa-solid fa-volume-xmark"></i>
+            MUTE ALL
+          </button>
+
+        </div>
+
+        <div class="itemStopall">
+          <button id="btnStopall" onclick="stopall()">
+            <i class="fa-solid fa-stop"></i>
+            STOP ALL
+          </button>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </body>
+
+
+
+
+</html>
