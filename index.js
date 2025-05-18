@@ -54,8 +54,83 @@ let suoni = {
         playing: false,
         nomeVisualizzato: "Bagno"
 
+    }, 
+    suon3: {
+        howl: new Howl({
+            src: ['audios/boing-flexatone-wobble-310482.mp3'],
+            html5: true,
+            onplay: function () {
+                suoni.suon3.playing = true;
+                iconaStop('suon3')
+
+            },
+            onstop: function () {
+                suoni.suon3.playing = false;
+                iconaPlay('suon3')
+
+            },
+            onend: function () {
+                suoni.suon3.playing = false;
+                iconaPlay('suon3')
+
+            },
+        }),
+        playing: false,
+        nomeVisualizzato: "Boing"
+
     },
-    "uno": {
+    suon4: {
+        howl: new Howl({
+            src: ['audios/sound-design-elements-sfx-ps-022-302865.mp3'],
+            html5: true,
+            onplay: function () {
+                suoni.suon3.playing = true;
+                iconaStop('suon3')
+
+            },
+            onstop: function () {
+                suoni.suon3.playing = false;
+                iconaPlay('suon3')
+
+            },
+            onend: function () {
+                suoni.suon3.playing = false;
+                iconaPlay('suon3')
+
+            },
+        }),
+        playing: false,
+        nomeVisualizzato: "Scboom"
+
+    },
+    suon5: {
+        howl: new Howl({
+            src: ['audios/transition-base-121422.mp3'],
+            html5: true,
+            onplay: function () {
+                suoni.suon3.playing = true;
+                iconaStop('suon3')
+
+            },
+            onstop: function () {
+                suoni.suon3.playing = false;
+                iconaPlay('suon3')
+
+            },
+            onend: function () {
+                suoni.suon3.playing = false;
+                iconaPlay('suon3')
+
+            },
+        }),
+        playing: false,
+        nomeVisualizzato: "transizione boom"
+
+    },
+// ## <<---- here per aggiungere un NUOVO SUONO
+
+
+    uno: {
         howl: new Howl({
             src: ['audios/Acid Trumpet by Kevin MacLeod.mp3'],
             html5: true,
@@ -167,6 +242,9 @@ let suoni = {
         }),
         playing: false
     }
+// ## <<---- here per aggiungere un NUOVO SUONO
+
+
 }
 
 
@@ -227,6 +305,11 @@ function setRumoriVolume(volume) {
 
     suoni.suon1.howl.volume(volume)
     suoni.suon2.howl.volume(volume)
+    suoni.suon3.howl.volume(volume)
+    suoni.suon4.howl.volume(volume)
+    suoni.suon5.howl.volume(volume)
+// ## <<---- here per aggiungere un NUOVO SUONO
+
 
 }
 
@@ -275,6 +358,11 @@ function fadeInRumori_step() {
     }
     suoni.suon1.howl.volume(nuovoVolume)
     suoni.suon2.howl.volume(nuovoVolume)
+    suoni.suon3.howl.volume(nuovoVolume)
+    suoni.suon4.howl.volume(nuovoVolume)
+    suoni.suon5.howl.volume(nuovoVolume)
+// ## <<---- here per aggiungere un NUOVO SUONO
+
     volumeRanger.value = nuovoVolume * 100;
     setLabelInnerText(volumelabel, nuovoVolume * 100)
 
@@ -310,6 +398,11 @@ function fadeOutRumori_step() {
 
     suoni.suon1.howl.volume(nuovoVolume)
     suoni.suon2.howl.volume(nuovoVolume)
+    suoni.suon3.howl.volume(nuovoVolume)
+    suoni.suon4.howl.volume(nuovoVolume)
+    suoni.suon5.howl.volume(nuovoVolume)
+// ## <<---- here per aggiungere un NUOVO SUONO
+
     volumeRanger.value = nuovoVolume * 100;
     setLabelInnerText(volumelabel, nuovoVolume * 100)
 
@@ -455,8 +548,13 @@ keymanager.onkeypressed('2', toggleAudioPlayDue)
 keymanager.onkeypressed('3', toggleAudioPlayTre)
 keymanager.onkeypressed('4', toggleAudioPlayQuattro)
 keymanager.onkeypressed('5', toggleAudioPlayCinque)
-keymanager.onkeypressed('c', toggleAudioPlaysuon1)
-keymanager.onkeypressed('t', toggleAudioPlaysuon2)
+keymanager.onkeypressed('q', toggleAudioPlaysuon1)
+keymanager.onkeypressed('w', toggleAudioPlaysuon2)
+keymanager.onkeypressed('e', toggleAudioPlaysuon3)
+keymanager.onkeypressed('e', toggleAudioPlaysuon4)
+keymanager.onkeypressed('e', toggleAudioPlaysuon5)
+// ## <<---- here per aggiungere un NUOVO SUONO
+
 
 
 function toggleAudioPlayUno() {
@@ -474,12 +572,26 @@ function toggleAudioPlayQuattro() {
 function toggleAudioPlayCinque() {
     toggleAudioPlay('cinque')
 }
-function toggleAudioPlaysuon2() {
-    toggleAudioPlay('suon2')
-}
+// ## <<---- here per aggiungere un NUOVO SUONO
+
 function toggleAudioPlaysuon1() {
     toggleAudioPlay('suon1')
 }
+function toggleAudioPlaysuon2() {
+    toggleAudioPlay('suon2')
+}
+function toggleAudioPlaysuon3() {
+    toggleAudioPlay('suon3')
+}
+function toggleAudioPlaysuon3() {
+    toggleAudioPlay('suon4')
+}
+function toggleAudioPlaysuon3() {
+    toggleAudioPlay('suon5')
+}
+// ## <<---- here per aggiungere un NUOVO SUONO
+
+
 /* ----- END KEY SHORTCUT ------ */
 
 
@@ -491,6 +603,18 @@ document.getElementById('btnsuon1').addEventListener('click', function (event) {
 document.getElementById('btnsuon2').addEventListener('click', function (event) {
     toggleAudioPlay('suon2');
 })
+document.getElementById('btnsuon3').addEventListener('click', function (event) {
+    toggleAudioPlay('suon3');
+})
+document.getElementById('btnsuon4').addEventListener('click', function (event) {
+    toggleAudioPlay('suon4');
+})
+document.getElementById('btnsuon5').addEventListener('click', function (event) {
+    toggleAudioPlay('suon5');
+})
+
+// ## <<---- here per aggiungere un NUOVO SUONO
+
 
 document.getElementById('btnuno').addEventListener('click', function (event) {
     toggleAudioPlay('uno');
@@ -511,6 +635,7 @@ document.getElementById('btnquattro').addEventListener('click', function (event)
 document.getElementById('btncinque').addEventListener('click', function (event) {
     toggleAudioPlay('cinque');
 })
+// ## <<---- here per aggiungere un NUOVO SUONO
 
 
 document.getElementById('fadeinCanzoni').addEventListener('click', function (event) {
@@ -524,6 +649,13 @@ document.getElementById('fadeinRumori').addEventListener('click', function (even
 })
 document.getElementById('fadeoutRumori').addEventListener('click', function (event) {
     toggleFadeoutRumori()
+})
+
+document.getElementById('btnMuteall').addEventListener('click', function (event) {
+    muteall()
+})
+document.getElementById('btnStopall').addEventListener('click', function (event) {
+    stopall()
 })
 
 document.getElementById('volumeRumori').addEventListener('input', function (event) {

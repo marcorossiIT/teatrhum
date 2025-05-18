@@ -38,7 +38,7 @@
       <table id="tbl-rumori">
         <tr id="titoli">
           <th class="td-titolo">
-            NOME suono
+            gruppo 1
           </th>
           <th class="td-centered">
             <i class="fa-solid fa-play"></i><i class="fa-solid fa-pause"></i>
@@ -62,6 +62,33 @@
               <i class="fa-solid fa-play"></i></button>
           </td>
         </tr>
+        <tr>
+          <td id="suon3">
+            03
+          </td>
+          <td class="td-centered">
+            <button id="btnsuon3">
+              <i class="fa-solid fa-play"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td id="suon4">
+            04
+          </td>
+          <td class="td-centered">
+            <button id="btnsuon4">
+              <i class="fa-solid fa-play"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td id="suon5">
+            05
+          </td>
+          <td class="td-centered">
+            <button id="btnsuon5">
+              <i class="fa-solid fa-play"></i></button>
+          </td>
+        </tr>
 
 
         <tr>
@@ -70,8 +97,9 @@
           </td>
           <td>
             <label style="font-family: monospace;" id="labelVolumeRumori" for="volumeRumori"></label>
-            <button class="fadebutton" id="fadeoutRumori">FADE OUT</button>
+            <br>
             <button class="fadebutton" id="fadeinRumori">FADE IN</button>
+            <button class="fadebutton" id="fadeoutRumori">FADE OUT</button>
 
 
           </td>
@@ -85,7 +113,7 @@
       <table id="tbl-canzoni">
         <tr id="titoli">
           <th class="td-titolo">
-            NOME canzone
+            gruppo 2
           </th>
           <th class="td-centered">
             <i class="fa-solid fa-play"></i><i class="fa-solid fa-pause"></i>
@@ -142,8 +170,9 @@
           </td>
           <td>
             <label style="font-family: monospace;" id="labelVolumeCanzoni" for="volumeCanzoni"></label>
-            <button class="fadebutton" id="fadeoutCanzoni">FADE OUT</button>
+            <br>
             <button class="fadebutton" id="fadeinCanzoni">FADE IN</button>
+            <button class="fadebutton" id="fadeoutCanzoni">FADE OUT</button>
 
           </td>
         </tr>
@@ -153,7 +182,7 @@
 
     <div class="controlli-generali">
       <div class="itemMuteall">
-        <button id="btnMuteall" onclick="muteall()">
+        <button id="btnMuteall">
           <i class="fa-solid fa-volume-xmark"></i>
           MUTE ALL
         </button>
@@ -161,7 +190,7 @@
       </div>
 
       <div class="itemStopall">
-        <button id="btnStopall" onclick="stopall()">
+        <button id="btnStopall">
           <i class="fa-solid fa-stop"></i>
           STOP ALL
         </button>
