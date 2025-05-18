@@ -6,254 +6,43 @@ if ('serviceWorker' in navigator) {
 }
 
 
+const suoniConfig = [
+    { key: 'suon1', src: 'audios/doorbell2-6450.mp3', nome: 'Doorbell' },
+    { key: 'suon2', src: 'audios/toilet-flush-02-45833.mp3', nome: 'Bagno' },
+    { key: 'suon3', src: 'audios/boing-flexatone-wobble-310482.mp3', nome: 'Boing' },
+    { key: 'suon4', src: 'audios/sound-design-elements-sfx-ps-022-302865.mp3', nome: 'Scboom' },
+    { key: 'suon5', src: 'audios/transition-base-121422.mp3', nome: 'transizione boom' },
+    { key: 'uno', src: 'audios/Acid Trumpet by Kevin MacLeod.mp3', nome: 'Acid Trumpet' },
+    { key: 'due', src: 'audios/bop-things-by-Nesrality-from-Pixabay.mp3', nome: 'transizione boom' },
+    { key: 'tre', src: 'audios/snowflakes-by-JuliusH-from-Pixabay.mp3', nome: 'transizione boom' },
+    { key: 'quattro', src: 'audios/Twin-Musicom-64-Sundays.mp3', nome: 'transizione boom' },
+    { key: 'cinque', src: 'audios/Bluedidjks_-_BlueDid_-_didier.merlateau.mp3', nome: 'transizione boom' },
+];
 
-let suoni = {
-    suon1: {
+let suoni = {};
+
+suoniConfig.forEach(({ key, src, nome }) => {
+    suoni[key] = {
         howl: new Howl({
-            src: ['audios/doorbell2-6450.mp3'],
+            src: [src],
             html5: true,
             onplay: function () {
-                suoni.suon1.playing = true;
-                iconaStop('suon1')
-
+                suoni[key].playing = true;
+                iconaStop(key);
             },
             onstop: function () {
-                suoni.suon1.playing = false;
-                iconaPlay('suon1')
-
+                suoni[key].playing = false;
+                iconaPlay(key);
             },
             onend: function () {
-                suoni.suon1.playing = false;
-                iconaPlay('suon1')
-
+                suoni[key].playing = false;
+                iconaPlay(key);
             },
         }),
         playing: false,
-        nomeVisualizzato: "Doorbell"
-    },
-    suon2: {
-        howl: new Howl({
-            src: ['audios/toilet-flush-02-45833.mp3'],
-            html5: true,
-            onplay: function () {
-                suoni.suon2.playing = true;
-                iconaStop('suon2')
-
-            },
-            onstop: function () {
-                suoni.suon2.playing = false;
-                iconaPlay('suon2')
-
-            },
-            onend: function () {
-                suoni.suon2.playing = false;
-                iconaPlay('suon2')
-
-            },
-        }),
-        playing: false,
-        nomeVisualizzato: "Bagno"
-
-    },
-    suon3: {
-        howl: new Howl({
-            src: ['audios/boing-flexatone-wobble-310482.mp3'],
-            html5: true,
-            onplay: function () {
-                suoni.suon3.playing = true;
-                iconaStop('suon3')
-
-            },
-            onstop: function () {
-                suoni.suon3.playing = false;
-                iconaPlay('suon3')
-
-            },
-            onend: function () {
-                suoni.suon3.playing = false;
-                iconaPlay('suon3')
-
-            },
-        }),
-        playing: false,
-        nomeVisualizzato: "Boing"
-
-    },
-    suon4: {
-        howl: new Howl({
-            src: ['audios/sound-design-elements-sfx-ps-022-302865.mp3'],
-            html5: true,
-            onplay: function () {
-                suoni.suon3.playing = true;
-                iconaStop('suon4')
-
-            },
-            onstop: function () {
-                suoni.suon3.playing = false;
-                iconaPlay('suon4')
-
-            },
-            onend: function () {
-                suoni.suon3.playing = false;
-                iconaPlay('suon4')
-
-            },
-        }),
-        playing: false,
-        nomeVisualizzato: "Scboom"
-
-    },
-    suon5: {
-        howl: new Howl({
-            src: ['audios/transition-base-121422.mp3'],
-            html5: true,
-            onplay: function () {
-                suoni.suon3.playing = true;
-                iconaStop('suon5')
-
-            },
-            onstop: function () {
-                suoni.suon3.playing = false;
-                iconaPlay('suon5')
-
-            },
-            onend: function () {
-                suoni.suon3.playing = false;
-                iconaPlay('suon5')
-
-            },
-        }),
-        playing: false,
-        nomeVisualizzato: "transizione boom"
-
-    },
-    // ## <<---- here per aggiungere un NUOVO SUONO
-
-
-    uno: {
-        howl: new Howl({
-            src: ['audios/Acid Trumpet by Kevin MacLeod.mp3'],
-            html5: true,
-            onplay: function () {
-                suoni.uno.playing = true;
-                iconaStop('uno')
-
-            },
-            onstop: function () {
-                suoni.uno.playing = false;
-                iconaPlay('uno')
-
-            },
-            onend: function () {
-                suoni.uno.playing = false;
-                iconaPlay('uno')
-
-            },
-        }),
-        playing: false,
-        nomeVisualizzato: "Acid Trumpet"
-
-    },
-    due: {
-        howl: new Howl({
-            src: ['audios/bop-things-by-Nesrality-from-Pixabay.mp3'],
-            html5: true,
-            onplay: function () {
-                suoni.due.playing = true;
-                iconaStop('due')
-
-            },
-            onstop: function () {
-                suoni.due.playing = false;
-                iconaPlay('due')
-
-            },
-            onend: function () {
-                suoni.due.playing = false;
-                iconaPlay('due')
-
-            },
-        }),
-        playing: false,
-        nomeVisualizzato: "transizione boom"
-
-    },
-    tre: {
-        howl: new Howl({
-            src: ['audios/snowflakes-by-JuliusH-from-Pixabay.mp3'],
-            html5: true,
-            onplay: function () {
-                suoni.tre.playing = true;
-                iconaStop('tre')
-
-            },
-            onstop: function () {
-                suoni.tre.playing = false;
-                iconaPlay('tre')
-
-            },
-            onend: function () {
-                suoni.tre.playing = false;
-                iconaPlay('tre')
-
-            },
-        }),
-        playing: false,
-        nomeVisualizzato: "transizione boom"
-
-    },
-    quattro: {
-        howl: new Howl({
-            src: ['audios/Twin-Musicom-64-Sundays.mp3'],
-            html5: true,
-            onplay: function () {
-                suoni.quattro.playing = true;
-                iconaStop('quattro')
-
-            },
-            onstop: function () {
-                suoni.quattro.playing = false;
-                iconaPlay('quattro')
-
-            },
-            onend: function () {
-                suoni.quattro.playing = false;
-                iconaPlay('quattro')
-
-            },
-        }),
-        playing: false,
-        nomeVisualizzato: "transizione boom"
-
-    },
-    cinque: {
-        howl: new Howl({
-            src: ['audios/Bluedidjks_-_BlueDid_-_didier.merlateau.mp3'],
-            html5: true,
-            onplay: function () {
-                suoni.cinque.playing = true;
-                iconaStop('cinque')
-
-            },
-            onstop: function () {
-                suoni.cinque.playing = false;
-                iconaPlay('cinque')
-
-            },
-            onend: function () {
-                suoni.cinque.playing = false;
-                iconaPlay('cinque')
-
-            },
-        }),
-        playing: false,
-        nomeVisualizzato: "transizione boom"
-
-    }
-    // ## <<---- here per aggiungere un NUOVO SUONO
-
-
-}
+        nomeVisualizzato: nome,
+    };
+});
 
 /* ----- NOMI VISUALIZZATI------ */
 
