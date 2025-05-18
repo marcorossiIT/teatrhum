@@ -54,7 +54,7 @@ let suoni = {
         playing: false,
         nomeVisualizzato: "Bagno"
 
-    }, 
+    },
     suon3: {
         howl: new Howl({
             src: ['audios/boing-flexatone-wobble-310482.mp3'],
@@ -85,17 +85,17 @@ let suoni = {
             html5: true,
             onplay: function () {
                 suoni.suon3.playing = true;
-                iconaStop('suon3')
+                iconaStop('suon4')
 
             },
             onstop: function () {
                 suoni.suon3.playing = false;
-                iconaPlay('suon3')
+                iconaPlay('suon4')
 
             },
             onend: function () {
                 suoni.suon3.playing = false;
-                iconaPlay('suon3')
+                iconaPlay('suon4')
 
             },
         }),
@@ -109,17 +109,17 @@ let suoni = {
             html5: true,
             onplay: function () {
                 suoni.suon3.playing = true;
-                iconaStop('suon3')
+                iconaStop('suon5')
 
             },
             onstop: function () {
                 suoni.suon3.playing = false;
-                iconaPlay('suon3')
+                iconaPlay('suon5')
 
             },
             onend: function () {
                 suoni.suon3.playing = false;
-                iconaPlay('suon3')
+                iconaPlay('suon5')
 
             },
         }),
@@ -127,7 +127,7 @@ let suoni = {
         nomeVisualizzato: "transizione boom"
 
     },
-// ## <<---- here per aggiungere un NUOVO SUONO
+    // ## <<---- here per aggiungere un NUOVO SUONO
 
 
     uno: {
@@ -174,7 +174,9 @@ let suoni = {
 
             },
         }),
-        playing: false
+        playing: false,
+        nomeVisualizzato: "transizione boom"
+
     },
     tre: {
         howl: new Howl({
@@ -196,7 +198,9 @@ let suoni = {
 
             },
         }),
-        playing: false
+        playing: false,
+        nomeVisualizzato: "transizione boom"
+
     },
     quattro: {
         howl: new Howl({
@@ -218,7 +222,9 @@ let suoni = {
 
             },
         }),
-        playing: false
+        playing: false,
+        nomeVisualizzato: "transizione boom"
+
     },
     cinque: {
         howl: new Howl({
@@ -240,13 +246,29 @@ let suoni = {
 
             },
         }),
-        playing: false
+        playing: false,
+        nomeVisualizzato: "transizione boom"
+
     }
-// ## <<---- here per aggiungere un NUOVO SUONO
+    // ## <<---- here per aggiungere un NUOVO SUONO
 
 
 }
 
+/* ----- NOMI VISUALIZZATI------ */
+
+document.getElementById('label-suon1').innerText = suoni.suon1.nomeVisualizzato;
+document.getElementById('label-suon2').innerText = suoni.suon2.nomeVisualizzato;
+document.getElementById('label-suon3').innerText = suoni.suon3.nomeVisualizzato;
+document.getElementById('label-suon4').innerText = suoni.suon4.nomeVisualizzato;
+document.getElementById('label-suon5').innerText = suoni.suon5.nomeVisualizzato;
+document.getElementById('label-canz1').innerText = suoni.uno.nomeVisualizzato;
+document.getElementById('label-canz2').innerText = suoni.due.nomeVisualizzato;
+document.getElementById('label-canz3').innerText = suoni.tre.nomeVisualizzato;
+document.getElementById('label-canz4').innerText = suoni.quattro.nomeVisualizzato;
+document.getElementById('label-canz5').innerText = suoni.cinque.nomeVisualizzato;
+
+/* ----- END NOMI VISUALIZZATI------ */
 
 
 let isFadeinRumori = false;
@@ -308,7 +330,7 @@ function setRumoriVolume(volume) {
     suoni.suon3.howl.volume(volume)
     suoni.suon4.howl.volume(volume)
     suoni.suon5.howl.volume(volume)
-// ## <<---- here per aggiungere un NUOVO SUONO
+    // ## <<---- here per aggiungere un NUOVO SUONO
 
 
 }
@@ -361,7 +383,7 @@ function fadeInRumori_step() {
     suoni.suon3.howl.volume(nuovoVolume)
     suoni.suon4.howl.volume(nuovoVolume)
     suoni.suon5.howl.volume(nuovoVolume)
-// ## <<---- here per aggiungere un NUOVO SUONO
+    // ## <<---- here per aggiungere un NUOVO SUONO
 
     volumeRanger.value = nuovoVolume * 100;
     setLabelInnerText(volumelabel, nuovoVolume * 100)
@@ -401,7 +423,7 @@ function fadeOutRumori_step() {
     suoni.suon3.howl.volume(nuovoVolume)
     suoni.suon4.howl.volume(nuovoVolume)
     suoni.suon5.howl.volume(nuovoVolume)
-// ## <<---- here per aggiungere un NUOVO SUONO
+    // ## <<---- here per aggiungere un NUOVO SUONO
 
     volumeRanger.value = nuovoVolume * 100;
     setLabelInnerText(volumelabel, nuovoVolume * 100)
@@ -551,8 +573,8 @@ keymanager.onkeypressed('5', toggleAudioPlayCinque)
 keymanager.onkeypressed('q', toggleAudioPlaysuon1)
 keymanager.onkeypressed('w', toggleAudioPlaysuon2)
 keymanager.onkeypressed('e', toggleAudioPlaysuon3)
-keymanager.onkeypressed('e', toggleAudioPlaysuon4)
-keymanager.onkeypressed('e', toggleAudioPlaysuon5)
+keymanager.onkeypressed('r', toggleAudioPlaysuon4)
+keymanager.onkeypressed('t', toggleAudioPlaysuon5)
 // ## <<---- here per aggiungere un NUOVO SUONO
 
 
@@ -583,10 +605,10 @@ function toggleAudioPlaysuon2() {
 function toggleAudioPlaysuon3() {
     toggleAudioPlay('suon3')
 }
-function toggleAudioPlaysuon3() {
+function toggleAudioPlaysuon4() {
     toggleAudioPlay('suon4')
 }
-function toggleAudioPlaysuon3() {
+function toggleAudioPlaysuon5() {
     toggleAudioPlay('suon5')
 }
 // ## <<---- here per aggiungere un NUOVO SUONO
