@@ -7,16 +7,16 @@ if ('serviceWorker' in navigator) {
 
 
 const suoniConfig = [
-    { key: 'suon1', src: 'audios/doorbell2-6450.mp3', nome: 'Doorbell' },
-    { key: 'suon2', src: 'audios/toilet-flush-02-45833.mp3', nome: 'Bagno' },
-    { key: 'suon3', src: 'audios/boing-flexatone-wobble-310482.mp3', nome: 'Boing' },
-    { key: 'suon4', src: 'audios/sound-design-elements-sfx-ps-022-302865.mp3', nome: 'Scboom' },
+    { key: 'suon1', src: 'audios/Telefono_tagliato.mp3', nome: 'Telefono' },
+    { key: 'suon2', src: 'audios/Campane_tagliato.mp3', nome: 'Campane' },
+    { key: 'suon3', src: 'audios/Otello_tagliato.mp3', nome: 'Otello' },
+    { key: 'suon4', src: 'audios/Toreador.mp3', nome: 'Toreador' },
     { key: 'suon5', src: 'audios/transition-base-121422.mp3', nome: 'transizione boom' },
-    { key: 'uno', src: 'audios/Acid Trumpet by Kevin MacLeod.mp3', nome: 'Acid Trumpet' },
-    { key: 'due', src: 'audios/bop-things-by-Nesrality-from-Pixabay.mp3', nome: 'transizione boom' },
-    { key: 'tre', src: 'audios/snowflakes-by-JuliusH-from-Pixabay.mp3', nome: 'transizione boom' },
-    { key: 'quattro', src: 'audios/Twin-Musicom-64-Sundays.mp3', nome: 'transizione boom' },
-    { key: 'cinque', src: 'audios/Bluedidjks_-_BlueDid_-_didier.merlateau.mp3', nome: 'transizione boom' },
+    { key: 'uno', src: 'audios/La donna_tagliato.mp3', nome: 'La donna e mobile' },
+    { key: 'due', src: 'audios/Largo al factotum.mp3', nome: 'Largo al factotum' },
+    { key: 'tre', src: 'audios/L\'Amour_tagliata.mp3', nome: 'Amour' },
+    { key: 'quattro', src: 'audios/Don Carlo_tagliato.mp3', nome: 'Don Carlo' },
+    { key: 'cinque', src: 'audios/Habanera.mp3', nome: 'Habanera' },
 ];
 
 let suoni = {};
