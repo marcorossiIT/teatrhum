@@ -8,16 +8,49 @@ if ('serviceWorker' in navigator) {
 
 const suoniConfig = [
     { key: 'suon1', src: 'audios/Telefono_tagliato.mp3', nome: 'Telefono' },
-    { key: 'suon2', src: 'audios/Campane_tagliato.mp3', nome: 'Campane' },
-    { key: 'suon3', src: 'audios/Otello_tagliato.mp3', nome: 'Otello' },
-    { key: 'suon4', src: 'audios/Toreador.mp3', nome: 'Toreador' },
-    { key: 'suon5', src: 'audios/transition-base-121422.mp3', nome: 'transizione boom' },
-    { key: 'uno', src: 'audios/La donna_tagliato.mp3', nome: 'La donna e mobile' },
-    { key: 'due', src: 'audios/Largo al factotum.mp3', nome: 'Largo al factotum' },
-    { key: 'tre', src: 'audios/L\'Amour_tagliata.mp3', nome: 'Amour' },
-    { key: 'quattro', src: 'audios/Don Carlo_tagliato.mp3', nome: 'Don Carlo' },
-    { key: 'cinque', src: 'audios/Habanera.mp3', nome: 'Habanera' },
+    { key: 'suon2', src: 'audios/Campane.mp3', nome: 'Campane' },
+    { key: 'suon3', src: 'audios/Sirena.mp3', nome: 'Sirena' },
+    { key: 'suon4', src: 'audios/', nome: '- - ' },
+    { key: 'suon5', src: 'audios/', nome: '- -' },
+    { key: 'uno', src: 'audios/1 - La donna.mp3', nome: '1 - La donna e mobile' },
+    { key: 'due', src: 'audios/2 - Largo al factotum.mp3', nome: '2 - Largo al factotum' },
+    { key: 'tre', src: 'audios/3 - Don Carlo.mp3', nome: '3 - Don Carlo' },
+    { key: 'quattro', src: 'audios/4 - Habanera.mp3', nome: '4 - Habanera' },
+    { key: 'cinque', src: 'audios/5 - Otello.mp3', nome: '5 - Otello' },
+    { key: 'sei', src: 'audios/6 - Traviata.mp3', nome: '6 - Traviata' },
+    { key: 'sette', src: 'audios/7 - Donna TAGLIATA.mp3', nome: '7 - Donna TAGLIATA' },
+    { key: 'otto', src: 'audios/8 - Toreador.mp3', nome: '8 - Toreador' },
 ];
+
+
+const btnsuon1 = document.getElementById('btnsuon1');
+const btnsuon2 = document.getElementById('btnsuon2');
+const btnsuon3 = document.getElementById('btnsuon3');
+const btnsuon4 = document.getElementById('btnsuon4');
+const btnsuon5 = document.getElementById('btnsuon5');
+
+const whatToObserve = {
+    attributes: true,
+    attributeFilter: ['data-playing'],
+};
+
+const mutObsv = new MutationObserver(mutations => {
+    for (const m in mutations) {
+        if (Object.prototype.hasOwnProperty.call(mutations, m)) {
+            const mutation = mutations[m];
+            if (mutation.attributeName === 'data-playing') {
+                // do something
+            }
+        }
+    }
+});
+mutObsv.observe(btnsuon1, whatToObserve);
+mutObsv.observe(btnsuon2, whatToObserve);
+mutObsv.observe(btnsuon3, whatToObserve);
+mutObsv.observe(btnsuon4, whatToObserve);
+mutObsv.observe(btnsuon5, whatToObserve);
+
+
 
 let suoni = {};
 
@@ -56,6 +89,9 @@ document.getElementById('label-canz2').innerText = suoni.due.nomeVisualizzato;
 document.getElementById('label-canz3').innerText = suoni.tre.nomeVisualizzato;
 document.getElementById('label-canz4').innerText = suoni.quattro.nomeVisualizzato;
 document.getElementById('label-canz5').innerText = suoni.cinque.nomeVisualizzato;
+document.getElementById('label-canz6').innerText = suoni.sei.nomeVisualizzato;
+document.getElementById('label-canz7').innerText = suoni.sette.nomeVisualizzato;
+document.getElementById('label-canz8').innerText = suoni.otto.nomeVisualizzato;
 
 /* ----- END NOMI VISUALIZZATI------ */
 
@@ -139,6 +175,9 @@ function setCanzoniVolume(volume) {
     suoni.tre.howl.volume(volume)
     suoni.quattro.howl.volume(volume)
     suoni.cinque.howl.volume(volume)
+    suoni.sei.howl.volume(volume)
+    suoni.sette.howl.volume(volume)
+    suoni.otto.howl.volume(volume)
 }
 
 /* ----------- */
@@ -253,6 +292,9 @@ function fadeInCanzoni_step() {
     suoni.tre.howl.volume(nuovoVolume)
     suoni.quattro.howl.volume(nuovoVolume)
     suoni.cinque.howl.volume(nuovoVolume)
+    suoni.sei.howl.volume(nuovoVolume)
+    suoni.sette.howl.volume(nuovoVolume)
+    suoni.otto.howl.volume(nuovoVolume)
     volumeRanger.value = nuovoVolume * 100;
     setLabelInnerText(volumelabel, nuovoVolume * 100)
 
@@ -297,6 +339,9 @@ function fadeOutCanzoni_step() {
     suoni.tre.howl.volume(nuovoVolume)
     suoni.quattro.howl.volume(nuovoVolume)
     suoni.cinque.howl.volume(nuovoVolume)
+    suoni.sei.howl.volume(nuovoVolume)
+    suoni.sette.howl.volume(nuovoVolume)
+    suoni.otto.howl.volume(nuovoVolume)
     volumeRanger.value = nuovoVolume * 100;
     setLabelInnerText(volumelabel, nuovoVolume * 100)
 
@@ -352,7 +397,8 @@ function easeInOut(x, a = 1) {
 }
 
 /* ----- KEY SHORTCUT ------ */
-let keymanager = new KeypressedManager();
+
+/*let keymanager = new KeypressedManager();
 
 keymanager.onkeypressed('1', toggleAudioPlayUno)
 keymanager.onkeypressed('2', toggleAudioPlayDue)
@@ -366,7 +412,7 @@ keymanager.onkeypressed('r', toggleAudioPlaysuon4)
 keymanager.onkeypressed('t', toggleAudioPlaysuon5)
 // ## <<---- here per aggiungere un NUOVO SUONO
 
-
+*/
 
 function toggleAudioPlayUno() {
     toggleAudioPlay('uno')
@@ -382,6 +428,15 @@ function toggleAudioPlayQuattro() {
 }
 function toggleAudioPlayCinque() {
     toggleAudioPlay('cinque')
+}
+function toggleAudioPlaySei() {
+    toggleAudioPlay('sei')
+}
+function toggleAudioPlaySette() {
+    toggleAudioPlay('sette')
+}
+function toggleAudioPlayOtto() {
+    toggleAudioPlay('otto')
 }
 // ## <<---- here per aggiungere un NUOVO SUONO
 
@@ -445,6 +500,15 @@ document.getElementById('btnquattro').addEventListener('click', function (event)
 
 document.getElementById('btncinque').addEventListener('click', function (event) {
     toggleAudioPlay('cinque');
+})
+document.getElementById('btnsei').addEventListener('click', function (event) {
+    toggleAudioPlay('sei');
+})
+document.getElementById('btnsette').addEventListener('click', function (event) {
+    toggleAudioPlay('sette');
+})
+document.getElementById('btnotto').addEventListener('click', function (event) {
+    toggleAudioPlay('otto');
 })
 // ## <<---- here per aggiungere un NUOVO SUONO
 
